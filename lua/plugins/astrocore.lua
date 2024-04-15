@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
@@ -43,6 +41,25 @@ return {
     -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
     mappings = {
       -- first key is the mode
+      v = {
+        ["<leader>i"] = { desc = "Summon ChatGPT" },
+        ["<leader>ic"] = { "<cmd>ChatGPT<CR>", desc = "ChatGPT" },
+        ["<leader>ie"] = { "<cmd>ChatGPTEditWithInstruction<CR>", desc = "Edit with instruction" },
+        ["<leader>ig"] = { "<cmd>ChatGPTRun grammar_correction<CR>", desc = "Grammar Correction" },
+        ["<leader>it"] = { "<cmd>ChatGPTRun translate<CR>", desc = "Translate" },
+        ["<leader>ik"] = { "<cmd>ChatGPTRun keywords<CR>", desc = "Keywords" },
+        ["<leader>id"] = { "<cmd>ChatGPTRun docstring<CR>", desc = "Docstring" },
+        ["<leader>ia"] = { "<cmd>ChatGPTRun add_tests<CR>", desc = "Add Tests" },
+        ["<leader>io"] = { "<cmd>ChatGPTRun optimize_code<CR>", desc = "Optimize Code" },
+        ["<leader>is"] = { "<cmd>ChatGPTRun summarize<CR>", desc = "Summarize" },
+        ["<leader>if"] = { "<cmd>ChatGPTRun fix_bugs<CR>", desc = "Fix Bugs" },
+        ["<leader>ix"] = { "<cmd>ChatGPTRun explain_code<CR>", desc = "Explain Code" },
+        ["<leader>ir"] = { "<cmd>ChatGPTRun roxygen_edit<CR>", desc = "Roxygen Edit" },
+        ["<leader>il"] = {
+          "<cmd>ChatGPTRun code_readability_analysis<CR>",
+          desc = "Code Readability Analysis",
+        },
+      },
       n = {
         -- second key is the lefthand side of the map
 
@@ -62,8 +79,79 @@ return {
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
         ["<Leader>b"] = { desc = "Buffers" },
-        -- quick save
-        -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+
+        -- MANAGE PACKAGE DEPS
+        ["<leader>pd"] = { desc = "NPM Packages" },
+        ["<leader>pdl"] = { "<cmd>lua require('package-info').show()<cr>", desc = "Show Latest Version" },
+        ["<leader>pdd"] = { "<cmd>lua require('package-info').delete()<cr>", desc = "Delete Package" },
+        ["<leader>pdu"] = { "<cmd>lua require('package-info').change_version()<cr>", desc = "Change Package Version" },
+        ["<leader>pdi"] = { "<cmd>lua require('package-info').install()<cr>", desc = "Install new Package" },
+
+        ["<M-Up>"] = { "<cmd>resize +2<cr>", desc = "Increase window height" },
+        ["<M-Down>"] = { "<cmd>resize -2<cr>", desc = "Decrease window height" },
+        ["<M-Left>"] = { "<cmd>vertical resize +2<cr>", desc = "Decrease window width" },
+        ["<M-Right>"] = { "<cmd>vertical resize -2<cr>", desc = "Increase window width" },
+
+        ["<leader>i"] = { desc = "Summon ChatGPT" },
+        ["<leader>ii"] = { "<cmd>ChatGPTCompleteCode<CR>", desc = "Complete Code" },
+        ["<leader>ic"] = { "<cmd>ChatGPT<CR>", desc = "ChatGPT" },
+        ["<leader>ie"] = { "<cmd>ChatGPTEditWithInstruction<CR>", desc = "Edit with instruction" },
+        ["<leader>ig"] = { "<cmd>ChatGPTRun grammar_correction<CR>", desc = "Grammar Correction" },
+        ["<leader>it"] = { "<cmd>ChatGPTRun translate<CR>", desc = "Translate" },
+        ["<leader>ik"] = { "<cmd>ChatGPTRun keywords<CR>", desc = "Keywords" },
+        ["<leader>id"] = { "<cmd>ChatGPTRun docstring<CR>", desc = "Docstring" },
+        ["<leader>ia"] = { "<cmd>ChatGPTRun add_tests<CR>", desc = "Add Tests" },
+        ["<leader>io"] = { "<cmd>ChatGPTRun optimize_code<CR>", desc = "Optimize Code" },
+        ["<leader>is"] = { "<cmd>ChatGPTRun summarize<CR>", desc = "Summarize" },
+        ["<leader>if"] = { "<cmd>ChatGPTRun fix_bugs<CR>", desc = "Fix Bugs" },
+        ["<leader>ix"] = { "<cmd>ChatGPTRun explain_code<CR>", desc = "Explain Code" },
+        ["<leader>ir"] = { "<cmd>ChatGPTRun roxygen_edit<CR>", desc = "Roxygen Edit" },
+        ["<leader>il"] = {
+          "<cmd>ChatGPTRun code_readability_analysis<CR>",
+          desc = "Code Readability Analysis",
+        },
+
+        -- [[ ["<leader>Q"] = {
+        --   function()
+        --     require("astronvim.utils.buffer").close_all()
+        --     vim.cmd "q!"
+        --   end,
+        --   desc = "Quit All",
+        -- }, ]]
+
+        ["<leader>bv"] = {
+          "<cmd>silent! windo if winnr('$') > 1 | execute 'bdelete ' . join(filter(range(1, bufnr('$')), 'bufwinnr(v:val) < 0')) | endif<CR>",
+          desc = "Close Buffers beside open ones",
+        },
+
+        -- Save All
+        ["<leader>W"] = { "<cmd>wa<cr>", desc = "Save All" },
+        -- better buffer navigation
+        -- ["]b"] = false,
+        -- ["[b"] = false,
+        --
+        -- ["<S-l>"] = {
+        --   function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
+        --   desc = "Next buffer",
+        -- },
+        -- ["<S-h>"] = {
+        --   function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
+        --   desc = "Previous buffer",
+        -- },
+
+        -- buffer switching
+        ["<Tab>"] = {
+          function()
+            if #vim.t.bufs > 1 then
+              require("telescope.builtin").buffers { sort_mru = true, ignore_current_buffer = true }
+              -- else
+              --   astrocore.notify "No other buffers open"
+            end
+          end,
+          desc = "Switch Buffers",
+        },
+        -- ["<leader>fe"] = { "<cmd>Telescope file_browser<cr>", desc = "File explorer" },
+        ["<leader>fp"] = { function() require("telescope").extensions.projects.projects {} end, desc = "Find projects" },
       },
       t = {
         -- setting a mapping to false will disable it
