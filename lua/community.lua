@@ -5,11 +5,7 @@
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
-  { import = "astrocommunity.pack.lua" },
-  -- import/override with your plugins folder
-  --
   -- Diagnostics
-
   { import = "astrocommunity.diagnostics.trouble-nvim" },
 
   -- ----------------------------------------------
@@ -182,11 +178,11 @@ return {
 
   -- ----------------------------------------------
   -- scrolling
-  -- { import = "astrocommunity.scrolling.neoscroll-nvim" },
+  { import = "astrocommunity.scrolling.neoscroll-nvim" },
   -- {
   --   "karb94/neoscroll.nvim",
   --   opts = {
-  --     mappings = { "<C-u>", "<C-d>", "<C-b>", "<C-f>", "<C-y>", "<C-e>", "zt", "zz", "zb" },
+  --     mappings = { "<C-b>", "<C-f>", "<C-y>", "<C-e>", "zt", "zz", "zb" },
   --   },
   -- },
 
