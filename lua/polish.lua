@@ -27,9 +27,18 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
   callback = function() vim.api.nvim_command "normal bsi" end,
 })
 
-vim.api.nvim_create_autocmd({ "CursorMoved" }, {
-  callback = function()
-    -- if vim.v.mouse_win ~= 0 and vim.v.mouse_lnum ~= 0 and vim.v.mouse_col ~= 0 then return end
-    if vim.bo.filetype ~= "neo-tree" and vim.bo.filetype ~= "alpha" then vim.api.nvim_command "normal zz" end
-  end,
+local function set_scroll_off()
+  -- local height = vim.api.nvim_win_get_height(0)
+  vim.o.scrolloff = 9999
+end
+
+vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter", "WinNew", "VimResized" }, {
+  callback = function() set_scroll_off() end,
 })
+
+-- vim.api.nvim_create_autocmd({ "CursorMoved" }, {
+--   callback = function()
+--     -- if vim.v.mouse_win ~= 0 and vim.v.mouse_lnum ~= 0 and vim.v.mouse_col ~= 0 then return end
+--     if vim.bo.filetype ~= "neo-tree" and vim.bo.filetype ~= "alpha" then vim.api.nvim_command "normal zz" end
+--   end,
+-- })
