@@ -23,8 +23,10 @@ vim.api.nvim_create_autocmd({ "InsertLeave" }, {
   callback = function() vim.opt.relativenumber = true end,
 })
 
-vim.api.nvim_create_autocmd({ "BufRead" }, {
-  callback = function() vim.api.nvim_command "normal bsi" end,
+vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter" }, {
+  callback = function()
+    if vim.bo.filetype ~= "neo-tree" and vim.bo.filetype ~= "alpha" then require("astrocore.buffer").sort "bufnr" end
+  end,
 })
 
 local function set_scroll_off()
