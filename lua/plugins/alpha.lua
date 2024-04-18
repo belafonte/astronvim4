@@ -11,7 +11,7 @@ return {
       dashboard.button("LDR f w", get_icon("WordFile", 2, true) .. "Find Word  "),
       dashboard.button("LDR f '", get_icon("Bookmarks", 2, true) .. "Bookmarks  "),
       dashboard.button("LDR S l", get_icon("Refresh", 2, true) .. "Last Session  "),
-      dashboard.button("LDR f p", get_icon("Directory", 2, true) .. "Projects  "),
+      dashboard.button("LDR f p", get_icon("FolderClosed", 2, true) .. "Projects  "),
     }
     opts.section.header.val = {
       "█████████████████████████████████████████████",
