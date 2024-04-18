@@ -5,6 +5,7 @@
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
+  { import = "astrocommunity.recipes.vscode-icons" },
   -- Diagnostics
   { import = "astrocommunity.diagnostics.trouble-nvim" },
 
