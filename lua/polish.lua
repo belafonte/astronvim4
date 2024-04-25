@@ -23,7 +23,7 @@ vim.api.nvim_create_autocmd({ "InsertLeave" }, {
   callback = function() vim.opt.relativenumber = true end,
 })
 
-vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter" }, {
+vim.api.nvim_create_autocmd({ "BufRead" }, {
   callback = function()
     if vim.bo.filetype ~= "neo-tree" and vim.bo.filetype ~= "alpha" then require("astrocore.buffer").sort "bufnr" end
   end,
