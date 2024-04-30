@@ -41,25 +41,25 @@ return {
     -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
     mappings = {
       -- first key is the mode
-      v = {
-        ["<leader>i"] = { desc = "Summon ChatGPT" },
-        ["<leader>ic"] = { "<cmd>ChatGPT<CR>", desc = "ChatGPT" },
-        ["<leader>ie"] = { "<cmd>ChatGPTEditWithInstruction<CR>", desc = "Edit with instruction" },
-        ["<leader>ig"] = { "<cmd>ChatGPTRun grammar_correction<CR>", desc = "Grammar Correction" },
-        ["<leader>it"] = { "<cmd>ChatGPTRun translate<CR>", desc = "Translate" },
-        ["<leader>ik"] = { "<cmd>ChatGPTRun keywords<CR>", desc = "Keywords" },
-        ["<leader>id"] = { "<cmd>ChatGPTRun docstring<CR>", desc = "Docstring" },
-        ["<leader>ia"] = { "<cmd>ChatGPTRun add_tests<CR>", desc = "Add Tests" },
-        ["<leader>io"] = { "<cmd>ChatGPTRun optimize_code<CR>", desc = "Optimize Code" },
-        ["<leader>is"] = { "<cmd>ChatGPTRun summarize<CR>", desc = "Summarize" },
-        ["<leader>if"] = { "<cmd>ChatGPTRun fix_bugs<CR>", desc = "Fix Bugs" },
-        ["<leader>ix"] = { "<cmd>ChatGPTRun explain_code<CR>", desc = "Explain Code" },
-        ["<leader>ir"] = { "<cmd>ChatGPTRun roxygen_edit<CR>", desc = "Roxygen Edit" },
-        ["<leader>il"] = {
-          "<cmd>ChatGPTRun code_readability_analysis<CR>",
-          desc = "Code Readability Analysis",
-        },
-      },
+      -- v = {
+      --   ["<leader>i"] = { desc = "Summon ChatGPT" },
+      --   ["<leader>ic"] = { "<cmd>ChatGPT<CR>", desc = "ChatGPT" },
+      --   ["<leader>ie"] = { "<cmd>ChatGPTEditWithInstruction<CR>", desc = "Edit with instruction" },
+      --   ["<leader>ig"] = { "<cmd>ChatGPTRun grammar_correction<CR>", desc = "Grammar Correction" },
+      --   ["<leader>it"] = { "<cmd>ChatGPTRun translate<CR>", desc = "Translate" },
+      --   ["<leader>ik"] = { "<cmd>ChatGPTRun keywords<CR>", desc = "Keywords" },
+      --   ["<leader>id"] = { "<cmd>ChatGPTRun docstring<CR>", desc = "Docstring" },
+      --   ["<leader>ia"] = { "<cmd>ChatGPTRun add_tests<CR>", desc = "Add Tests" },
+      --   ["<leader>io"] = { "<cmd>ChatGPTRun optimize_code<CR>", desc = "Optimize Code" },
+      --   ["<leader>is"] = { "<cmd>ChatGPTRun summarize<CR>", desc = "Summarize" },
+      --   ["<leader>if"] = { "<cmd>ChatGPTRun fix_bugs<CR>", desc = "Fix Bugs" },
+      --   ["<leader>ix"] = { "<cmd>ChatGPTRun explain_code<CR>", desc = "Explain Code" },
+      --   ["<leader>ir"] = { "<cmd>ChatGPTRun roxygen_edit<CR>", desc = "Roxygen Edit" },
+      --   ["<leader>il"] = {
+      --     "<cmd>ChatGPTRun code_readability_analysis<CR>",
+      --     desc = "Code Readability Analysis",
+      --   },
+      -- },
       n = {
         -- second key is the lefthand side of the map
         -- navigate buffer tabs with `H` and `L`
@@ -91,24 +91,24 @@ return {
         ["<M-Left>"] = { "<cmd>vertical resize +2<cr>", desc = "Decrease window width" },
         ["<M-Right>"] = { "<cmd>vertical resize -2<cr>", desc = "Increase window width" },
 
-        ["<leader>i"] = { desc = "Summon ChatGPT" },
-        ["<leader>ii"] = { "<cmd>ChatGPTCompleteCode<CR>", desc = "Complete Code" },
-        ["<leader>ic"] = { "<cmd>ChatGPT<CR>", desc = "ChatGPT" },
-        ["<leader>ie"] = { "<cmd>ChatGPTEditWithInstruction<CR>", desc = "Edit with instruction" },
-        ["<leader>ig"] = { "<cmd>ChatGPTRun grammar_correction<CR>", desc = "Grammar Correction" },
-        ["<leader>it"] = { "<cmd>ChatGPTRun translate<CR>", desc = "Translate" },
-        ["<leader>ik"] = { "<cmd>ChatGPTRun keywords<CR>", desc = "Keywords" },
-        ["<leader>id"] = { "<cmd>ChatGPTRun docstring<CR>", desc = "Docstring" },
-        ["<leader>ia"] = { "<cmd>ChatGPTRun add_tests<CR>", desc = "Add Tests" },
-        ["<leader>io"] = { "<cmd>ChatGPTRun optimize_code<CR>", desc = "Optimize Code" },
-        ["<leader>is"] = { "<cmd>ChatGPTRun summarize<CR>", desc = "Summarize" },
-        ["<leader>if"] = { "<cmd>ChatGPTRun fix_bugs<CR>", desc = "Fix Bugs" },
-        ["<leader>ix"] = { "<cmd>ChatGPTRun explain_code<CR>", desc = "Explain Code" },
-        ["<leader>ir"] = { "<cmd>ChatGPTRun roxygen_edit<CR>", desc = "Roxygen Edit" },
-        ["<leader>il"] = {
-          "<cmd>ChatGPTRun code_readability_analysis<CR>",
-          desc = "Code Readability Analysis",
-        },
+        -- ["<leader>i"] = { desc = "Summon ChatGPT" },
+        -- ["<leader>ii"] = { "<cmd>ChatGPTCompleteCode<CR>", desc = "Complete Code" },
+        -- ["<leader>ic"] = { "<cmd>ChatGPT<CR>", desc = "ChatGPT" },
+        -- ["<leader>ie"] = { "<cmd>ChatGPTEditWithInstruction<CR>", desc = "Edit with instruction" },
+        -- ["<leader>ig"] = { "<cmd>ChatGPTRun grammar_correction<CR>", desc = "Grammar Correction" },
+        -- ["<leader>it"] = { "<cmd>ChatGPTRun translate<CR>", desc = "Translate" },
+        -- ["<leader>ik"] = { "<cmd>ChatGPTRun keywords<CR>", desc = "Keywords" },
+        -- ["<leader>id"] = { "<cmd>ChatGPTRun docstring<CR>", desc = "Docstring" },
+        -- ["<leader>ia"] = { "<cmd>ChatGPTRun add_tests<CR>", desc = "Add Tests" },
+        -- ["<leader>io"] = { "<cmd>ChatGPTRun optimize_code<CR>", desc = "Optimize Code" },
+        -- ["<leader>is"] = { "<cmd>ChatGPTRun summarize<CR>", desc = "Summarize" },
+        -- ["<leader>if"] = { "<cmd>ChatGPTRun fix_bugs<CR>", desc = "Fix Bugs" },
+        -- ["<leader>ix"] = { "<cmd>ChatGPTRun explain_code<CR>", desc = "Explain Code" },
+        -- ["<leader>ir"] = { "<cmd>ChatGPTRun roxygen_edit<CR>", desc = "Roxygen Edit" },
+        -- ["<leader>il"] = {
+        --   "<cmd>ChatGPTRun code_readability_analysis<CR>",
+        --   desc = "Code Readability Analysis",
+        -- },
 
         -- [[ ["<leader>Q"] = {
         --   function()
@@ -149,7 +149,7 @@ return {
           end,
           desc = "Switch Buffers",
         },
-        -- ["<leader>fe"] = { "<cmd>Telescope file_browser<cr>", desc = "File explorer" },
+        ["<leader>fe"] = { "<cmd>Telescope file_browser<cr>", desc = "File explorer" },
         ["<leader>fp"] = { function() require("telescope").extensions.projects.projects {} end, desc = "Find projects" },
       },
       t = {
