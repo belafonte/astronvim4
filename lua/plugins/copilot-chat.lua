@@ -56,7 +56,7 @@ return {
         },
         -- Close the chat
         close = {
-          normal = "q",
+          normal = "<C-j>",
           insert = "<C-c>",
         },
         -- Reset the chat buffer

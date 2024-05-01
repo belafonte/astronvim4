@@ -23,7 +23,7 @@ vim.api.nvim_create_autocmd({ "InsertLeave" }, {
   callback = function() vim.opt.relativenumber = true end,
 })
 
-vim.api.nvim_create_autocmd({ "BufRead" }, {
+vim.api.nvim_create_autocmd({ "BufRead", "BufEnter" }, {
   callback = function()
     if vim.bo.filetype ~= "neo-tree" and vim.bo.filetype ~= "alpha" then require("astrocore.buffer").sort "bufnr" end
   end,
@@ -37,10 +37,3 @@ end
 vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter", "WinNew", "VimResized" }, {
   callback = function() set_scroll_off() end,
 })
-
--- vim.api.nvim_create_autocmd({ "CursorMoved" }, {
---   callback = function()
---     -- if vim.v.mouse_win ~= 0 and vim.v.mouse_lnum ~= 0 and vim.v.mouse_col ~= 0 then return end
---     if vim.bo.filetype ~= "neo-tree" and vim.bo.filetype ~= "alpha" then vim.api.nvim_command "normal zz" end
---   end,
--- })
