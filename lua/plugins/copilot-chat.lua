@@ -176,7 +176,7 @@ return {
     event = "VeryLazy",
 
     keys = {
-      { "<leader>a", nil, desc = "Copilot Chat" },
+      -- ["<leader>a"] = { nil, "  Copilot Chat" },
 
       -- Show help actions with telescope
       {
