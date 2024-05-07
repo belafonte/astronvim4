@@ -2,6 +2,20 @@
 -- Configuration documentation can be found with `:h astrocore`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
 --       as this provides autocomplete and documentation while editing
+--
+function is_current_buffer_visible()
+  local current_buf = vim.api.nvim_get_current_buf()
+  local winnr = vim.fn.bufwinnr(current_buf)
+  return winnr ~= -1
+end
+
+function close_all_nonvisible_buffers()
+  local buffers = vim.api.nvim_list_bufs()
+
+  for _, buf in ipairs(buffers) do
+    if vim.fn.bufwinnr(buf) == -1 then require("astrocore.buffer").close(buf, false) end
+  end
+end
 
 ---@type LazySpec
 return {
@@ -118,8 +132,14 @@ return {
         --   desc = "Quit All",
         -- }, ]]
 
+        -- ["<leader>bv"] = {
+        --   "<cmd>silent! windo if winnr('$') > 1 | execute 'bdelete ' . join(filter(range(1, bufnr('$')), 'bufwinnr(v:val) < 0')) | endif<CR>",
+        --
+        --   desc = "Close Buffers beside open ones",
+        -- },
+        --
         ["<leader>bv"] = {
-          "<cmd>silent! windo if winnr('$') > 1 | execute 'bdelete ' . join(filter(range(1, bufnr('$')), 'bufwinnr(v:val) < 0')) | endif<CR>",
+          function() close_all_nonvisible_buffers() end,
           desc = "Close Buffers beside open ones",
         },
 
