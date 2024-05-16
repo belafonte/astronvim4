@@ -3,13 +3,13 @@
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
 --       as this provides autocomplete and documentation while editing
 --
-function is_current_buffer_visible()
+local function is_current_buffer_visible()
   local current_buf = vim.api.nvim_get_current_buf()
   local winnr = vim.fn.bufwinnr(current_buf)
   return winnr ~= -1
 end
 
-function close_all_nonvisible_buffers()
+local function close_all_nonvisible_buffers()
   local buffers = vim.api.nvim_list_bufs()
 
   for _, buf in ipairs(buffers) do
