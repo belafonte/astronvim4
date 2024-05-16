@@ -208,6 +208,7 @@ return {
       { "<leader>ar", "<cmd>CopilotChatReview<cr>", desc = "CopilotChat - Review code" },
       { "<leader>aR", "<cmd>CopilotChatRefactor<cr>", desc = "CopilotChat - Refactor code" },
       { "<leader>an", "<cmd>CopilotChatBetterNamings<cr>", desc = "CopilotChat - Better Naming" },
+      { "<leader>as", "<cmd>CopilotChatStop<cr>", desc = "CopilotChat - Stop Chat" },
       -- Chat with Copilot in visual mode
       {
         "<leader>av",
