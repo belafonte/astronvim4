@@ -115,6 +115,10 @@ return {
   },
 
   -- ----------------------------------------------
+  -- Media
+  -- { import = "astrocommunity.media.image-nvim" },
+
+  -- ----------------------------------------------
   -- Git Integrations
   -- { import = "astrocommunity.git.neogit" },
   { import = "astrocommunity.git.diffview-nvim" },
