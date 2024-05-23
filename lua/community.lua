@@ -155,6 +155,7 @@ return {
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.pack.prisma" },
+  { import = "astrocommunity.pack.python" },
 
   -- Pack not used as prettierd too agressive with format
   -- Treesitter: markdown & markdown_inline, Lsp: marksman, Lint/format: prettierd
