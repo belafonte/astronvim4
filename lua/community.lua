@@ -12,8 +12,6 @@ return {
   -- ----------------------------------------------
   -- Bars and Lines
   { import = "astrocommunity.bars-and-lines.bufferline-nvim" },
-  -- { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
-
   {
     "akinsho/bufferline.nvim",
     opts = {
@@ -37,6 +35,16 @@ return {
       },
     },
   },
+  -- { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
+
+  -- Code Runnners
+  -- { import = "astrocommunity.code-runner.conjure" },
+  -- {
+  --   "Olical/conjure",
+  --   opts = {
+  --     ft = { "clojure", "janet", "fennel", "racket", "hy", "scheme", "guile", "julia", "lua", "lisp", "python" },
+  --   },
+  -- },
 
   -- { import = "astrocommunity.bars-and-lines.scope-nvim" },
 
