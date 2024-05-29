@@ -6,6 +6,8 @@
 return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.recipes.vscode-icons" },
+
+  -- ----------------------------------------------
   -- Diagnostics
   { import = "astrocommunity.diagnostics.trouble-nvim" },
 
@@ -35,8 +37,9 @@ return {
       },
     },
   },
-  -- { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
+  { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
 
+  -- ----------------------------------------------
   -- Code Runnners
   -- { import = "astrocommunity.code-runner.conjure" },
   -- {
@@ -51,12 +54,13 @@ return {
   -- ----------------------------------------------
   -- colorchemes
   { import = "astrocommunity.colorscheme.everforest" },
-  --
+
+  -- ----------------------------------------------
   -- color picker and highlighter
   { import = "astrocommunity.color.ccc-nvim" },
 
-  -- Indent
   -- ----------------------------------------------
+  -- indent
   -- { import = "astrocommunity.indent.mini-indentscope" },
   { import = "astrocommunity.indent.indent-blankline-nvim" },
 
@@ -138,7 +142,6 @@ return {
   -- Motion
   -- Navigate with search labels
   { import = "astrocommunity.motion.flash-nvim" }, -- overrides S surround in visual state
-  -- ----------------------------------------------
 
   -- ----------------------------------------------
   -- Packs
@@ -170,7 +173,6 @@ return {
   -- { import = "astrocommunity.pack.markdown" },
   -- Treesitter: markdown & markdown_inline, Lsp: marksman, Lint/format: prettierd
   -- { import = "astrocommunity.pack.yaml" },
-  -- ----------------------------------------------
 
   -- ----------------------------------------------
   -- Project
@@ -182,7 +184,6 @@ return {
   -- Programing Language support
   -- { import = "astrocommunity.programming-language-support.nvim-jqx" },
   -- { import = "astrocommunity.programming-language-support.rest-nvim" },
-  -- ----------------------------------------------
 
   -- ----------------------------------------------
   -- registers
