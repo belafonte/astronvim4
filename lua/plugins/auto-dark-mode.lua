@@ -1,12 +1,3 @@
--- local home = vim.fn.expand "$HOME"
--- local themes_folder = "/Users/jpistor/.config/kitty/themes"
---
---
-local function setKittyColors(theme)
-  local command = "/opt/homebrew/bin/kitty @ set-colors -a -c " .. theme
-  vim.fn.system(command)
-end
-
 return {
   "f-person/auto-dark-mode.nvim",
   opts = {
