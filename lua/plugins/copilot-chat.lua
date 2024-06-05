@@ -36,9 +36,9 @@ return {
       show_help = false, -- Show help in virtual text, set to true if that's 1st time using Copilot Chat
       -- default window options
       window = {
-        layout = "float", -- 'vertical', 'horizontal', 'float'
-        width = 0.5, -- fractional width of parent, or absolute width in columns when > 1
-        height = 0.5, -- fractional height of parent, or absolute height in rows when > 1
+        layout = "vertical", -- 'vertical', 'horizontal', 'float'
+        width = 80, -- fractional width of parent, or absolute width in columns when > 1
+        height = 1, -- fractional height of parent, or absolute height in rows when > 1
         -- Options below only apply to floating windows
         relative = "editor", -- 'editor', 'win', 'cursor', 'mouse'
         border = "single", -- 'none', single', 'double', 'rounded', 'solid', 'shadow'

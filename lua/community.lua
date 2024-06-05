@@ -204,6 +204,10 @@ return {
   -- { import = "astrocommunity.scrolling.mini-animate" },
   -- { import = "astrocommunity.scrolling.cinnamon-nvim" },
 
+  -- ----------------------------------------------
+  -- Split and Window
+  -- { import = "astrocommunity.split-and-window.edgy-nvim" },
+
   -- Code Completion
   { import = "astrocommunity.completion.copilot-lua-cmp" },
 
