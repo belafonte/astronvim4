@@ -178,7 +178,18 @@ return {
   -- Project
   { import = "astrocommunity.project.project-nvim" }, -- switch between projects
   { import = "astrocommunity.project.nvim-spectre" }, -- search and replace
-  -- ----------------------------------------------
+  {
+    "nvim-pack/nvim-spectre",
+    opts = {
+      mappings = {
+        ["resume_last_search"] = {
+          map = "<leader>ll",
+          cmd = "<cmd>lua require('spectre').resume_last_search()<CR>",
+          desc = "repeat last search",
+        },
+      },
+    },
+  },
 
   -- ----------------------------------------------
   -- Programing Language support
