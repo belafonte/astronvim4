@@ -41,13 +41,11 @@ return {
 
   -- ----------------------------------------------
   -- Code Runnners
-  -- { import = "astrocommunity.code-runner.conjure" },
-  -- {
-  --   "Olical/conjure",
-  --   opts = {
-  --     ft = { "clojure", "janet", "fennel", "racket", "hy", "scheme", "guile", "julia", "lua", "lisp", "python" },
-  --   },
-  -- },
+  { import = "astrocommunity.code-runner.conjure" },
+  {
+    "Olical/conjure",
+    ft = { "clojure", "janet", "fennel", "racket", "hy", "scheme", "guile", "julia", "lua", "lisp", "python" },
+  },
 
   -- { import = "astrocommunity.bars-and-lines.scope-nvim" },
 
@@ -75,6 +73,7 @@ return {
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
   { import = "astrocommunity.editing-support.nvim-regexplainer" },
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
+
   -- { import = "astrocommunity.editing-support.chatgpt-nvim" },
   -- { -- further customize the options set by the community
   --   "jackMort/ChatGPT.nvim",
