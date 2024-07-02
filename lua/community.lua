@@ -6,6 +6,8 @@
 return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.recipes.vscode-icons" },
+  { import = "astrocommunity.recipes.neovide" },
+  { import = "astrocommunity.recipes.telescope-lsp-mappings" },
 
   -- ----------------------------------------------
   -- Diagnostics
