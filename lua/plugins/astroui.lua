@@ -13,13 +13,12 @@ return {
     -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
     highlights = {
       init = { -- this table overrides highlights in all themes
-        -- Normal = { bg = "#000000" },
+        -- Normal = { bg = "bg" },
         NeoTreeNormal = { bg = "bg" },
         NeoTreeEndOfBuffer = { bg = "bg" },
         NormalFloat = { bg = "bg" },
-        Normal = { bg = "bg" },
         FloatBorder = { bg = "bg" },
-
+        --
         NeotreeTabActive = { bg = "bg" },
         NeotreeTabInactive = { bg = "bg" },
         NeoTreeTabSeparatorInactive = { fg = "bg", bg = "bg" },
