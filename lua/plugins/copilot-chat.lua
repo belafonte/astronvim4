@@ -156,8 +156,8 @@ return {
 
       local wk = require "which-key"
 
-      wk.register {
-        ["<leader>a"] = { nil, " Copilot Chat" },
+      wk.add {
+        { "<leader>a", group = " Copilot" },
       }
       -- Add which-key mappings
       -- local wk = require "which-key"
