@@ -206,7 +206,7 @@ return {
 
   -- ----------------------------------------------
   -- scrolling
-  { import = "astrocommunity.scrolling.neoscroll-nvim" },
+  -- { import = "astrocommunity.scrolling.neoscroll-nvim" },
   -- {
   --   "karb94/neoscroll.nvim",
   --   opts = {
