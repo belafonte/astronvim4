@@ -110,23 +110,23 @@ return {
     },
   },
 
-  { import = "astrocommunity.editing-support.zen-mode-nvim" },
-  {
-    "folke/zen-mode.nvim",
-    opts = {
-      -- override default configuration
-      -- https://github.com/folke/zen-mode.nvim#%EF%B8%8F-configuration
-      plugins = {
-        options = {
-          enabled = true,
-        },
-        kitty = {
-          enabled = true,
-          font = "+4", -- font size increment
-        },
-      },
-    },
-  },
+  -- { import = "astrocommunity.editing-support.zen-mode-nvim" },
+  -- {
+  --   "folke/zen-mode.nvim",
+  --   opts = {
+  --     -- override default configuration
+  --     -- https://github.com/folke/zen-mode.nvim#%EF%B8%8F-configuration
+  --     plugins = {
+  --       options = {
+  --         enabled = true,
+  --       },
+  --       kitty = {
+  --         enabled = true,
+  --         font = "+4", -- font size increment
+  --       },
+  --     },
+  --   },
+  -- },
 
   -- ----------------------------------------------
   -- Media
@@ -177,21 +177,11 @@ return {
   -- { import = "astrocommunity.pack.yaml" },
 
   -- ----------------------------------------------
+  { import = "astrocommunity.search.grug-far-nvim" }, -- search and replace
+
+  -- ----------------------------------------------
   -- Project
   { import = "astrocommunity.project.project-nvim" }, -- switch between projects
-  { import = "astrocommunity.project.nvim-spectre" }, -- search and replace
-  {
-    "nvim-pack/nvim-spectre",
-    opts = {
-      mappings = {
-        ["resume_last_search"] = {
-          map = "<leader>ll",
-          cmd = "<cmd>lua require('spectre').resume_last_search()<CR>",
-          desc = "repeat last search",
-        },
-      },
-    },
-  },
 
   -- ----------------------------------------------
   -- Programing Language support
