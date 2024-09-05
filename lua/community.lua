@@ -210,6 +210,7 @@ return {
   -- ----------------------------------------------
   -- Split and Window
   -- { import = "astrocommunity.split-and-window.edgy-nvim" },
+  -- { import = "astrocommunity.split-and-window.windows-nvim" },
 
   -- Code Completion
   { import = "astrocommunity.completion.copilot-lua-cmp" },
