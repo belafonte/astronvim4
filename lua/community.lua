@@ -162,7 +162,7 @@ return {
   -- Adds 'standardrb' through null-ls
   -- Adds 'nvim-dap-ruby'
   -- DOES NOT WORK -> LSP TIMEOUT
-  -- { import = "astrocommunity.pack.ruby" },
+  { import = "astrocommunity.pack.ruby" },
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.svelte" },
   { import = "astrocommunity.pack.html-css" },
