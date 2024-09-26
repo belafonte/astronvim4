@@ -5,49 +5,43 @@ local prompts = {
   Tests = "Please explain how the selected code works, then generate unit tests for it.",
   Refactor = "Please refactor the following code to improve its clarity and readability.",
   FixCode = "Please fix the following code to make it work as intended.",
-  FixError = "Please explain the error in the following text and provide a solution.",
   BetterNamings = "Please provide better names for the following variables and functions.",
   Documentation = "Please provide documentation for the following code.",
   SwaggerApiDocs = "Please provide documentation for the following API using Swagger.",
-  SwaggerJsDocs = "Please write JSDoc for the following API using Swagger.",
-  -- Text related prompts
-  Summarize = "Please summarize the following text.",
-  Spelling = "Please correct any grammar and spelling errors in the following text.",
-  Wording = "Please improve the grammar and wording of the following text.",
-  Concise = "Please rewrite the following text to make it more concise.",
 }
 
 return {
   {
+    "folke/which-key.nvim",
+    optional = true,
+    opts = {
+      spec = {
+        { "<leader>a", group = "  Copilot" },
+        { "gm", group = "+Copilot chat" },
+        { "gmh", desc = "Show help" },
+        { "gmd", desc = "Show diff" },
+        { "gmp", desc = "Show system prompt" },
+        { "gms", desc = "Show selection" },
+        { "gmy", desc = "Yank diff" },
+      },
+    },
+  },
+  {
     "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "canary",
+    branch = "canary", -- Use the canary branch if you want to test the latest features but it might be unstable
+    -- version = "v2.11.0",
+    -- Do not use branch and version together, either use branch or version
     dependencies = {
       { "nvim-telescope/telescope.nvim" }, -- Use telescope for help actions
-      { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
       { "nvim-lua/plenary.nvim" },
     },
     opts = {
       question_header = "## User ",
       answer_header = "## Copilot ",
       error_header = "## Error ",
-      separator = " ", -- Separator to use in chat
       prompts = prompts,
       auto_follow_cursor = false, -- Don't follow the cursor after getting response
       show_help = false, -- Show help in virtual text, set to true if that's 1st time using Copilot Chat
-      -- default window options
-      window = {
-        layout = "vertical", -- 'vertical', 'horizontal', 'float'
-        width = 80, -- fractional width of parent, or absolute width in columns when > 1
-        height = 1, -- fractional height of parent, or absolute height in rows when > 1
-        -- Options below only apply to floating windows
-        relative = "editor", -- 'editor', 'win', 'cursor', 'mouse'
-        border = "single", -- 'none', single', 'double', 'rounded', 'solid', 'shadow'
-        row = nil, -- row position of the window, default is centered
-        col = nil, -- column position of the window, default is centered
-        title = "Copilot Chat", -- title of chat window
-        footer = nil, -- footer of chat window
-        zindex = 1, -- determines if window is on top or below other floating windows
-      },
       mappings = {
         -- Use tab for completion
         complete = {
@@ -56,13 +50,13 @@ return {
         },
         -- Close the chat
         close = {
-          normal = "<C-j>",
+          normal = "q",
           insert = "<C-c>",
         },
         -- Reset the chat buffer
         reset = {
-          normal = "<C-l>",
-          insert = "<C-l>",
+          normal = "<C-x>",
+          insert = "<C-x>",
         },
         -- Submit the prompt to Copilot
         submit_prompt = {
@@ -90,6 +84,10 @@ return {
         show_user_selection = {
           normal = "gms",
         },
+        -- Show help
+        show_help = {
+          normal = "gmh",
+        },
       },
     },
     config = function(_, opts)
@@ -109,6 +107,8 @@ return {
       }
 
       chat.setup(opts)
+      -- Setup the CMP integration
+      require("CopilotChat.integrations.cmp").setup()
 
       vim.api.nvim_create_user_command(
         "CopilotChatVisual",
@@ -153,31 +153,9 @@ return {
           if ft == "copilot-chat" then vim.bo.filetype = "markdown" end
         end,
       })
-
-      local wk = require "which-key"
-
-      wk.add {
-        { "<leader>a", group = " Copilot" },
-      }
-      -- Add which-key mappings
-      -- local wk = require "which-key"
-      -- wk.register {
-      --   g = {
-      --     m = {
-      --       name = "+Copilot Chat",
-      --       d = "Show diff",
-      --       p = "System prompt",
-      --       s = "Show selection",
-      --       y = "Yank diff",
-      --     },
-      --   },
-      -- }
     end,
     event = "VeryLazy",
-
     keys = {
-      -- ["<leader>a"] = { nil, "  Copilot Chat" },
-
       -- Show help actions with telescope
       {
         "<leader>ah",
@@ -208,7 +186,6 @@ return {
       { "<leader>ar", "<cmd>CopilotChatReview<cr>", desc = "CopilotChat - Review code" },
       { "<leader>aR", "<cmd>CopilotChatRefactor<cr>", desc = "CopilotChat - Refactor code" },
       { "<leader>an", "<cmd>CopilotChatBetterNamings<cr>", desc = "CopilotChat - Better Naming" },
-      { "<leader>as", "<cmd>CopilotChatStop<cr>", desc = "CopilotChat - Stop Chat" },
       -- Chat with Copilot in visual mode
       {
         "<leader>av",
@@ -259,6 +236,8 @@ return {
       { "<leader>al", "<cmd>CopilotChatReset<cr>", desc = "CopilotChat - Clear buffer and chat history" },
       -- Toggle Copilot Chat Vsplit
       { "<leader>av", "<cmd>CopilotChatToggle<cr>", desc = "CopilotChat - Toggle" },
+      -- Copilot Chat Models
+      { "<leader>a?", "<cmd>CopilotChatModels<cr>", desc = "CopilotChat - Select Models" },
     },
   },
 }
