@@ -149,6 +149,7 @@ return {
   -- Packs
   -- Treesitter: clojure , Lsp: clojure-lsp, Lint/format:
   { import = "astrocommunity.pack.clojure" },
+  { "gpanders/nvim-parinfer", enabled = true },
   -- Treesitter: dockerfile , Lsp: dockerls & docker_compose_language_service, Lint/format: hadolint
   { import = "astrocommunity.pack.docker" },
   -- Treesitter: json & jsonc, Lsp: jsonls, Lint/format: stylua
