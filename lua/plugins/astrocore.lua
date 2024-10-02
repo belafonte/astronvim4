@@ -55,25 +55,9 @@ return {
     -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
     mappings = {
       -- first key is the mode
-      -- v = {
-      --   ["<leader>i"] = { desc = "Summon ChatGPT" },
-      --   ["<leader>ic"] = { "<cmd>ChatGPT<CR>", desc = "ChatGPT" },
-      --   ["<leader>ie"] = { "<cmd>ChatGPTEditWithInstruction<CR>", desc = "Edit with instruction" },
-      --   ["<leader>ig"] = { "<cmd>ChatGPTRun grammar_correction<CR>", desc = "Grammar Correction" },
-      --   ["<leader>it"] = { "<cmd>ChatGPTRun translate<CR>", desc = "Translate" },
-      --   ["<leader>ik"] = { "<cmd>ChatGPTRun keywords<CR>", desc = "Keywords" },
-      --   ["<leader>id"] = { "<cmd>ChatGPTRun docstring<CR>", desc = "Docstring" },
-      --   ["<leader>ia"] = { "<cmd>ChatGPTRun add_tests<CR>", desc = "Add Tests" },
-      --   ["<leader>io"] = { "<cmd>ChatGPTRun optimize_code<CR>", desc = "Optimize Code" },
-      --   ["<leader>is"] = { "<cmd>ChatGPTRun summarize<CR>", desc = "Summarize" },
-      --   ["<leader>if"] = { "<cmd>ChatGPTRun fix_bugs<CR>", desc = "Fix Bugs" },
-      --   ["<leader>ix"] = { "<cmd>ChatGPTRun explain_code<CR>", desc = "Explain Code" },
-      --   ["<leader>ir"] = { "<cmd>ChatGPTRun roxygen_edit<CR>", desc = "Roxygen Edit" },
-      --   ["<leader>il"] = {
-      --     "<cmd>ChatGPTRun code_readability_analysis<CR>",
-      --     desc = "Code Readability Analysis",
-      --   },
-      -- },
+      v = {
+        ["<C-\\>"] = { "<Cmd>ToggleTerm<CR>", desc = "Toggle terminal" }, -- requires terminal that supports binding <C-'>
+      },
       n = {
         -- second key is the lefthand side of the map
         -- navigate buffer tabs with `H` and `L`
@@ -94,43 +78,17 @@ return {
         ["<Leader>b"] = { desc = "Buffers" },
 
         -- MANAGE PACKAGE DEPS
-        ["<leader>pd"] = { desc = "NPM Packages" },
-        ["<leader>pdl"] = { "<cmd>lua require('package-info').show()<cr>", desc = "Show Latest Version" },
-        ["<leader>pdd"] = { "<cmd>lua require('package-info').delete()<cr>", desc = "Delete Package" },
-        ["<leader>pdu"] = { "<cmd>lua require('package-info').change_version()<cr>", desc = "Change Package Version" },
-        ["<leader>pdi"] = { "<cmd>lua require('package-info').install()<cr>", desc = "Install new Package" },
+        ["<Leader>pd"] = { desc = "NPM Packages" },
+        ["<Leader>pdl"] = { "<cmd>lua require('package-info').show()<cr>", desc = "Show Latest Version" },
+        ["<Leader>pdd"] = { "<cmd>lua require('package-info').delete()<cr>", desc = "Delete Package" },
+        ["<Leader>pdu"] = { "<cmd>lua require('package-info').change_version()<cr>", desc = "Change Package Version" },
+        ["<Leader>pdi"] = { "<cmd>lua require('package-info').install()<cr>", desc = "Install new Package" },
 
         ["<M-Up>"] = { "<cmd>resize +2<cr>", desc = "Increase window height" },
         ["<M-Down>"] = { "<cmd>resize -2<cr>", desc = "Decrease window height" },
         ["<M-Left>"] = { "<cmd>vertical resize +2<cr>", desc = "Decrease window width" },
         ["<M-Right>"] = { "<cmd>vertical resize -2<cr>", desc = "Increase window width" },
-
-        -- ["<leader>i"] = { desc = "Summon ChatGPT" },
-        -- ["<leader>ii"] = { "<cmd>ChatGPTCompleteCode<CR>", desc = "Complete Code" },
-        -- ["<leader>ic"] = { "<cmd>ChatGPT<CR>", desc = "ChatGPT" },
-        -- ["<leader>ie"] = { "<cmd>ChatGPTEditWithInstruction<CR>", desc = "Edit with instruction" },
-        -- ["<leader>ig"] = { "<cmd>ChatGPTRun grammar_correction<CR>", desc = "Grammar Correction" },
-        -- ["<leader>it"] = { "<cmd>ChatGPTRun translate<CR>", desc = "Translate" },
-        -- ["<leader>ik"] = { "<cmd>ChatGPTRun keywords<CR>", desc = "Keywords" },
-        -- ["<leader>id"] = { "<cmd>ChatGPTRun docstring<CR>", desc = "Docstring" },
-        -- ["<leader>ia"] = { "<cmd>ChatGPTRun add_tests<CR>", desc = "Add Tests" },
-        -- ["<leader>io"] = { "<cmd>ChatGPTRun optimize_code<CR>", desc = "Optimize Code" },
-        -- ["<leader>is"] = { "<cmd>ChatGPTRun summarize<CR>", desc = "Summarize" },
-        -- ["<leader>if"] = { "<cmd>ChatGPTRun fix_bugs<CR>", desc = "Fix Bugs" },
-        -- ["<leader>ix"] = { "<cmd>ChatGPTRun explain_code<CR>", desc = "Explain Code" },
-        -- ["<leader>ir"] = { "<cmd>ChatGPTRun roxygen_edit<CR>", desc = "Roxygen Edit" },
-        -- ["<leader>il"] = {
-        --   "<cmd>ChatGPTRun code_readability_analysis<CR>",
-        --   desc = "Code Readability Analysis",
-        -- },
-
-        -- [[ ["<leader>Q"] = {
-        --   function()
-        --     require("astronvim.utils.buffer").close_all()
-        --     vim.cmd "q!"
-        --   end,
-        --   desc = "Quit All",
-        -- }, ]]
+        ["<C-\\>"] = { '<Cmd>execute v:count . "ToggleTerm"<CR>', desc = "Toggle terminal" }, -- requires terminal that supports binding <C-'>
 
         -- ["<leader>bv"] = {
         --   "<cmd>silent! windo if winnr('$') > 1 | execute 'bdelete ' . join(filter(range(1, bufnr('$')), 'bufwinnr(v:val) < 0')) | endif<CR>",
@@ -138,13 +96,13 @@ return {
         --   desc = "Close Buffers beside open ones",
         -- },
         --
-        ["<leader>bv"] = {
+        ["<Leader>bv"] = {
           function() close_all_nonvisible_buffers() end,
           desc = "Close Buffers beside open ones",
         },
 
         -- Save All
-        ["<leader>W"] = { "<cmd>wa<cr>", desc = "Save All" },
+        ["<Leader>W"] = { "<cmd>wa<cr>", desc = "Save All" },
         -- better buffer navigation
         -- ["]b"] = false,
         -- ["[b"] = false,
@@ -168,9 +126,10 @@ return {
           desc = "Switch Buffers",
         },
         -- ["<leader>fe"] = { "<cmd>Telescope file_browser<cr>", desc = "File explorer" },
-        ["<leader>fp"] = { function() require("telescope").extensions.projects.projects {} end, desc = "Find projects" },
+        ["<Leader>fp"] = { function() require("telescope").extensions.projects.projects {} end, desc = "Find projects" },
       },
       t = {
+        ["<C-\\>"] = { "<Cmd>ToggleTerm<CR>", desc = "Toggle terminal" }, -- requires terminal that supports binding <C-'>
         -- setting a mapping to false will disable it
         -- ["<esc>"] = false,
       },
