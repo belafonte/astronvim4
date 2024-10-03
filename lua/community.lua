@@ -69,6 +69,7 @@ return {
   -- Motion plugins
   -- :help nvim-surround.usage.
   { import = "astrocommunity.motion.nvim-surround" },
+  { import = "astrocommunity.motion.marks-nvim" },
 
   -- ----------------------------------------------
   -- Editor support
