@@ -150,7 +150,7 @@ return {
   -- Packs
   -- Treesitter: clojure , Lsp: clojure-lsp, Lint/format:
   { import = "astrocommunity.pack.clojure" },
-  { "gpanders/nvim-parinfer", enabled = false },
+  { "gpanders/nvim-parinfer", enabled = true },
   -- Treesitter: dockerfile , Lsp: dockerls & docker_compose_language_service, Lint/format: hadolint
   { import = "astrocommunity.pack.docker" },
   -- Treesitter: json & jsonc, Lsp: jsonls, Lint/format: stylua
@@ -212,6 +212,18 @@ return {
   -- ----------------------------------------------
   -- Split and Window
   -- { import = "astrocommunity.split-and-window.edgy-nvim" },
+  -- {
+  --   "folke/edgy.nvim",
+  --   optional = true,
+  --   opts = function(_, opts)
+  --     opts.right = opts.right or {}
+  --     table.insert(opts.right, {
+  --       ft = "copilot-chat",
+  --       title = "Copilot Chat",
+  --       size = { width = 50 },
+  --     })
+  --   end,
+  -- },
   -- { import = "astrocommunity.split-and-window.windows-nvim" },
 
   -- Code Completion
